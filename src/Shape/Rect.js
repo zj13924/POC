@@ -3,10 +3,14 @@ import { makeDraggable } from "../Controller/Util";
 
 class Rect extends React.Component {
   componentDidMount() {
-    makeDraggable(this);
+    if (this.props.draggable) {
+      makeDraggable(this);
+    }
   }
   render() {
-    return <rect {...this.props} />;
+    const properties = { ...this.props };
+    delete properties.draggable;
+    return <rect {...properties} />;
   }
 }
 export default Rect;

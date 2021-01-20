@@ -3,10 +3,14 @@ import { makeDraggable } from "../Controller/Util";
 
 class Ellipse extends React.Component {
   componentDidMount() {
-    makeDraggable(this);
+    if (this.props.draggable) {
+      makeDraggable(this);
+    }
   }
   render() {
-    return <ellipse {...this.props} />;
+    const properties = { ...this.props };
+    delete properties.draggable;
+    return <ellipse {...properties} />;
   }
 }
 export default Ellipse;

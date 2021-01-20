@@ -2,11 +2,21 @@ import React from "react";
 import { makeDraggable } from "../Controller/Util";
 
 class Circle extends React.Component {
+  /*
+  constructor(...args) {
+    super(...args);
+    this.properties = { ...this.props };
+  }
+  */
   componentDidMount() {
-    makeDraggable(this);
+    if (this.props.draggable) {
+      makeDraggable(this);
+    }
   }
   render() {
-    return <circle {...this.props} />;
+    const properties = { ...this.props };
+    delete properties.draggable;
+    return <circle {...properties} />;
   }
 }
 export default Circle;
