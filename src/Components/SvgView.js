@@ -5,6 +5,7 @@ import Ellipse from "../Shape/Ellipse";
 import Group from "../Container/Group";
 import Rect1 from "../Shape/Rect1";
 import Line from "../Shape/Line";
+import Path from "../Shape/Path";
 import Ellipse1 from "../Shape/Ellipse1";
 class SvgView extends React.Component {
   render() {
@@ -50,7 +51,7 @@ class SvgView extends React.Component {
 
         <Ellipse1
           node="node-3"
-          x={400}
+          x={500}
           y={500}
           width={50}
           height={35}
@@ -59,7 +60,7 @@ class SvgView extends React.Component {
         />
         <Ellipse1
           node="node-4"
-          x={600}
+          x={700}
           y={550}
           width={50}
           height={35}
@@ -70,6 +71,30 @@ class SvgView extends React.Component {
           from="node-3"
           to="node-4"
           style={{ stroke: "green", strokeWidth: "3px" }}
+        />
+
+        <Ellipse1
+          node="node-5"
+          x={100}
+          y={500}
+          width={50}
+          height={35}
+          fill={"#f1c40f"}
+          stroke={"#000"}
+        />
+        <Ellipse1
+          node="node-6"
+          x={400}
+          y={550}
+          width={50}
+          height={35}
+          fill={"#f1c40f"}
+          stroke={"#000"}
+        />
+        <Path
+          from="node-5"
+          to="node-6"
+          style={{ stroke: "green", fill: "#c021", strokeWidth: "3px" }}
         />
       </svg>
     );

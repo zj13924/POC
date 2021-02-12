@@ -21,6 +21,7 @@ export function makeDraggable(comp) {
 }
 
 export function makeDraggable1(me) {
+  //make "Ellipse1" components draggable
   const handleDrag = d3
     .drag()
     .subject(function () {
@@ -36,6 +37,14 @@ export function makeDraggable1(me) {
       me.dispatch("moved");
     });
   handleDrag(me);
+}
+
+export function makeDProperty(x0, y0, x1, y1, x2, y2, x3, y3) {
+  return `M ${x0} ${y0} C ${x1} ${y1}, ${x2} ${y2}, ${x3} ${y3}`;
+}
+
+export function makeDPropertyFromObj(data) {
+  return `M ${data.x0} ${data.y0} C ${data.x1} ${data.y1}, ${data.x2} ${data.y2}, ${data.x3} ${data.y3}`;
 }
 /*
 export function assignId(obj) {
